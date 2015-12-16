@@ -24,7 +24,7 @@
         <div class="element-text"><?php echo item_image_gallery(); ?></div>
     </div>
     <?php endif; ?>
-    
+
 
 
     <!-- The following prints a list of all tags associated with the item -->

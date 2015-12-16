@@ -1,5 +1,5 @@
 <?php
-$pageTitle = __('Browse Items');
+$pageTitle = __('Browse Documents');
 echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 ?>
 
@@ -9,9 +9,9 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 
     <?php echo item_search_filters(); ?>
 
-    <ul class="items-nav navigation" id="secondary-nav">
+    <!--<ul class="items-nav navigation" id="secondary-nav">
         <?php echo public_nav_items(); ?>
-    </ul>
+    </ul>-->
 
     <?php echo pagination_links(); ?>
 
