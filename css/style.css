@@ -891,7 +891,7 @@ th {
   #site-title {
     font-size: 21px;
     line-height: 42px;
-    padding: 0 0 0.75em 0;
+    padding: 0 0 1em 0;
     text-transform: uppercase;
     font-weight: bold;
   }
@@ -1221,6 +1221,11 @@ th {
 
   /* @end */
   /* @group ----- Home ----- */
+  #home #site-title {
+    font-size: 28px;
+    padding: 0 0 0.75em 0;
+  }
+
   #intro {
     border-color: #E2DFD3;
     padding-top: 1.5em;

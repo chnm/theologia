@@ -467,7 +467,7 @@ header {
 #site-title {
     font-size: 1.5 * $base-font-size;
     line-height: 2 * $base-line-height;
-    padding: 0 0 rhythm(1, 2 * $base-font-size) 0;
+    padding: 0 0 rhythm(1, 1.5 * $base-font-size) 0;
     text-transform: uppercase;
     font-weight: bold;
 
@@ -825,6 +825,11 @@ footer {
 /* @end */
 
 /* @group ----- Home ----- */
+
+#home #site-title {
+    font-size: 2 * $base-font-size;
+    padding: 0 0 rhythm(1, 2 * $base-font-size) 0;
+}
 
 #intro {
     border-color: $sand;
