@@ -263,7 +263,7 @@ label,
 #wrap {
     overflow: hidden;
     background: #fff;
-    width: 884px;
+    max-width: 884px;
     padding: rhythm();
     margin: 0 auto;
 }
@@ -328,6 +328,10 @@ label,
     word-wrap: break-word;
     border-left: 1px solid $sand;
     @include trailer(-1);
+}
+
+#top-nav .navigation > li:first-child {
+    display: none;
 }
 
 .navigation {
