@@ -25,7 +25,7 @@ body {
     font-size: $base-font-size;
     line-height: $base-line-height;
     color:#222;
-    background:#f6f6f6
+    background: url('../images/bg.png') $sand;
 }
 
 h1 {
@@ -94,10 +94,10 @@ dd {
 }
 
 
-blockquote { 
+blockquote {
     margin: rhythm(2) 0;
     font-style:italic;
-    border-color: $gray;
+    border-color: $sand;
     padding: rhythm() 1.5em 0;
     @include leading-border(1px, 1, $base-font-size, solid);
 }
@@ -112,16 +112,16 @@ strong, b {
 
 a:link { color:$red; }
 
-a:visited { color:$yellow; }
+a:visited { color:$red; }
 
-a:hover { color:#7B8D78; }
+a:hover { color: lighten($red, 20%); }
 
-a:active { color:#7B8D78; }
+a:active { color: lighten($red, 20%); }
 
-h1 a, 
-h2 a, 
-h3 a, 
-h4 a, 
+h1 a,
+h2 a,
+h3 a,
+h4 a,
 #site-title a { text-decoration:none; }
 
 table {
@@ -139,14 +139,14 @@ table {
 th,td {
     margin:0;
     padding: 10px 0;
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid $sand;
 }
 
 th {
     text-align:left;
-    color: $yellow;
+    color: $red;
     font-weight:bold;
-    border-bottom: 2px solid $gray;
+    border-bottom: 2px solid $sand;
 }
 
 fieldset {
@@ -162,7 +162,7 @@ input[type=text],
 input[type=password],
 textarea {
     font-family: "Lato", sans-serif;
-    border-color: $gray;
+    border-color: $sand;
     @include rhythm-borders(1px, .25, $base-font-size, solid);
     font-size: $base-font-size;
     line-height: $base-line-height;
@@ -180,15 +180,15 @@ a.button {
     font-family: "Lato", sans-serif;
     font-size: $base-font-size;
     line-height: $base-line-height;
-    background-color: $yellow;
+    background-color: $red;
     color: #fff;
     border: 0;
     padding: rhythm(.25);
     cursor: pointer;
     margin: 0;
-    
+
     &:hover {
-        background-color: darken($yellow, 15%);
+        background-color: darken($red, 15%);
     }
 }
 
@@ -201,15 +201,15 @@ select {
     line-height: 1.5 * $base-line-height;
     height: 1.5 * $base-line-height;
     margin-right: 3px;
-    vertical-align: top;    
+    vertical-align: top;
 }
-    
+
 
 textarea {
     @include trailer(1, $base-font-size);
     min-width: 50%;
     min-height: rhythm(6);
-    border-color: $gray;
+    border-color: $sand;
     @include rhythm-borders(1px, .5, $base-font-size, solid);
     vertical-align: top;
 }
@@ -248,7 +248,7 @@ label,
     width: auto;
     padding: .5em;
     border: 1px blue dashed;
-    color: $yellow;
+    color: #fff;
 }
 
 /* @end */
@@ -265,23 +265,22 @@ label,
     background: #fff;
     width: 884px;
     padding: rhythm();
-    margin: rhythm(2) auto;
+    margin: 0 auto;
 }
 
 #content {
     clear:both;
     @include padding-trailer();
-    border-top:1px solid $gray;
-    border-bottom:1px solid $gray;
+    border-bottom:1px solid $sand;
     float: left;
     width: 100%;
     position: relative;
-    
+
     & > h1:first-of-type {
         padding: rhythm(.5) 0;
         margin: 0;
     }
-    
+
     #intro + #primary, & > #primary, #secondary {
         @include padding-leader();
     }
@@ -298,13 +297,13 @@ label,
     padding: rhythm() rhythm() rhythm() 0;
     @include trailer(-1);
     position: relative;
-    
+
     & > h1:first-child,
     & > h2:first-child {
         @include leader(0);
         @include trailer(1, 2 * $base-font-size);
     }
-    
+
     &:after {
         content: "";
         display: block;
@@ -312,7 +311,7 @@ label,
         right: -1px;
         top: 0;
         bottom: 0;
-        background-color: $gray;
+        background-color: $sand;
         width: 1px;
     }
 }
@@ -327,7 +326,7 @@ label,
     width: 35%;
     padding: 0 0 rhythm() rhythm();
     word-wrap: break-word;
-    border-left: 1px solid $gray;
+    border-left: 1px solid $sand;
     @include trailer(-1);
 }
 
@@ -345,7 +344,7 @@ label,
         height: rhythm(1.5);
         clear:both;
         margin: 0 0 rhythm();
-        background-color: $gray;
+        background-color: $sand;
         display: inline-block;
         vertical-align: top;
         padding-left: 0;
@@ -365,7 +364,7 @@ label,
 
 .pagination_next,
 .pagination_previous {
-    background-color: $yellow;
+    background-color: $red;
     font-size: $base-font-size;
     position: relative;
 
@@ -431,7 +430,7 @@ ul.tags li {
 }
 
 .collection {
-    border-color: $gray;
+    border-color: $sand;
     @include leading-border(1px, .5, $base-font-size, solid);
     clear: both;
 }
@@ -452,6 +451,11 @@ ul.tags li {
     }
 }
 
+div.hentry h2 {
+    font-size: 1.25 * $base-font-size;
+    line-height: 1.5 * $base-line-height;
+}
+
 /* @end */
 
 /* @group ----- Header ----- */
@@ -461,10 +465,12 @@ header {
 }
 
 #site-title {
-    font-size: 2 * $base-font-size;
+    font-size: 1.5 * $base-font-size;
     line-height: 2 * $base-line-height;
     padding: 0 0 rhythm(1, 2 * $base-font-size) 0;
-    
+    text-transform: uppercase;
+    font-weight: bold;
+
     img {
         max-width: 100%;
     }
@@ -482,24 +488,24 @@ header {
         float: left;
         width: 100%;
         position: relative;
-        
+
         a {
             font-weight:bold;
             text-decoration:none;
         }
     }
-    
+
     input {
         vertical-align: top;
         margin: 0;
     }
-    
+
     input[type=text] {
         width: 100%;
         float: left;
         height: 1.5 * $base-line-height;
     }
-    
+
     button,
     .button {
         width: rhythm(1.5);
@@ -507,7 +513,7 @@ header {
         top: 0;
         right: 0;
         text-indent: -9999px;
-        
+
         &:after {
             font-family: "FontAwesome";
             text-indent: 0;
@@ -535,17 +541,17 @@ header {
         width: 100%;
         padding-right: rhythm(3);
     }
-    
+
     button,
     .show-advanced {
         width: rhythm(1.5);
         position: absolute;
     }
-    
+
     button {
         right: 0;
     }
-    
+
     .show-advanced {
         width: rhythm(1.5);
         color: #fff !important;
@@ -562,38 +568,38 @@ header {
     background-color: #fff;
     z-index: 20;
     width: 100%;
-    border-color: $gray;
+    border-color: $sand;
     border-top-color: #fff;
     @include rhythm-borders(1px, .25, $base-font-size, solid);
     text-align: left;
     padding: rhythm(.5);
-    
+
     &.closed {
         display: none;
     }
-    
+
     &.open  {
         left: 0;
     }
-    
+
     p {
         @include trailer(.5);
     }
-    
+
     fieldset {
         @include trailer();
     }
-    
+
     label {
         font-size: $base-font-size;
         font-weight: normal;
     }
-    
+
     input[type=checkbox],
     input[type=radio] {
         margin: rhythm(.25) 5px 0 0;
     }
-    
+
     & > *:last-child {
         margin-bottom: 0;
     }
@@ -601,27 +607,19 @@ header {
 
 /* mega menu list */
 .nav-menu {
-    width: 100%;
+    width: calc(100% + #{rhythm(2)});
     display: block;
     position: relative;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0 rhythm(-1);
     z-index: 15;
     float: left;
-    background-color: $red;
-    
+    border-top: 3px solid $sand;
+    border-bottom: 3px solid $sand;
+    padding: 0;
+
     a {
         text-decoration: none;
-
-        &:link, &:visited {
-            color: #fff;
-        }
-        
-        &:hover, &:focus {
-            background-color: #000;
-            color: saturate(lighten($yellow, 20%), 20%);
-        }
     }
 }
 
@@ -642,20 +640,21 @@ header {
     padding: rhythm(.5) rhythm();
     margin: 0;
     border: 0;
-    color: #fff;
 }
 
-/* focus/open states of first descendant link within a top level 
+/* focus/open states of first descendant link within a top level
    navigation item */
 .nav-item > a:focus,
 .nav-item > a.open {
-    background-color: #000;
+    background-color: darken($sand, 30%);
+    color: $sand;
 }
 
-/* open state of first descendant link within a top level 
+/* open state of first descendant link within a top level
    navigation item */
 .nav-item > a.open {
-    background-color: #000;
+    background-color: darken($sand, 30%);
+    color: $sand;
     border-bottom: none;
     z-index: 1;
 }
@@ -685,7 +684,7 @@ header {
     vertical-align: top;
     margin: 0;
     padding: 0;
-    
+
     a {
         &:before {
             content: "\2014\0020";
@@ -715,7 +714,7 @@ header {
 #header-image {
     clear:both;
     margin: rhythm() 0;
-    border-color: $gray;
+    border-color: $sand;
     @include leading-border(1px, 1, $base-font-size, solid);
 
     img {
@@ -737,7 +736,7 @@ footer {
         float: right;
         text-align: right;
         margin-bottom: 0;
-        
+
         ul { display: none; }
     }
 
@@ -749,7 +748,7 @@ footer {
             margin-left: 9px;
             text-decoration: none;
             font-weight: bold;
-            border-right: 1px solid $gray;
+            border-right: 1px solid $sand;
             padding-right: 9px;
             white-space: nowrap;
         }
@@ -783,41 +782,41 @@ footer {
 #item-filters li,
 #search-filters li {
     display: inline-block;
-}    
+}
 
 #item-filters > ul > li,
 #search-filters > ul > li {
     padding: rhythm(.5) 10px;
-    background-color: lighten($yellow, 35%);
-    color: darken($yellow, 15%);
+    background-color: lighten($red, 35%);
+    color: darken($red, 15%);
 }
 
 #item-filters li li,
 #search-filters li li {
     text-transform: lowercase;
-    
+
     &:after {
         content: ", "
     }
-    
+
     &:last-of-type:after {
         content: "";
     }
 }
 
 #item-filters {
-    border-color: $gray;
+    border-color: $sand;
     @include trailing-border(1px, 1, $base-font-size, solid);
     @include trailer();
 }
 
 #search-results {
     @include leader();
-    
+
     td, th {
         vertical-align: top;
     }
-    
+
     .image {
         margin-bottom: 0;
     }
@@ -828,7 +827,7 @@ footer {
 /* @group ----- Home ----- */
 
 #intro {
-    border-color: $gray;
+    border-color: $sand;
     @include padding-leader();
     @include trailing-border(1px, 1, $base-font-size, solid);
 }
@@ -836,10 +835,10 @@ footer {
 .featured,
 #featured-exhibit {
     overflow: hidden;
-    background: #7B8D78;
+    background: $blue;
     color: #fff;
     padding: rhythm() rhythm() 0;
-    border-color: #4F584D;
+    border-color: darken($blue, 20%);
     @include trailing-border(3px, 1, $base-font-size, solid);
     @include trailer();
 
@@ -848,17 +847,17 @@ footer {
         font-weight:bold;
         margin: rhythm(-1) rhythm(-1) rhythm(1, 1.25 * $base-font-size);
         padding: rhythm(.5) rhythm();
-        background:#4F584D;
+        background: darken($blue, 20%);
         color:#fff;
     }
 
     h3 {
         @include leader(0);
     }
-    
-    a { color: lighten($yellow, 20%); }
-    
-    a:hover { color: lighten(saturate($yellow, 20%), 20%); }
+
+    a { color: lighten($blue, 40%); }
+
+    a:hover { color: lighten($blue, 50%); }
 
 }
 
@@ -878,6 +877,7 @@ footer {
     @include trailer();
 }
 
+#recent-items h2,
 #recent-items h3 {
     @include leader(0);
 }
@@ -920,13 +920,13 @@ footer {
         padding: rhythm(.5);
         text-align:center;
         color:#fff;
-        background:$yellow;
+        background:$red;
         border-width: 0 1px 1px 0;
     }
 
     a:hover,
     li.active a {
-        background-color: darken($yellow, 20%);
+        background-color: darken($red, 20%);
         color: #fff;
     }
 }
@@ -934,7 +934,7 @@ footer {
 div.item {
     clear: both;
     overflow:hidden;
-    border-color: $gray;
+    border-color: $sand;
     @include leading-border(1px, 1, $base-font-size, solid);
 
     h2 {
@@ -962,7 +962,7 @@ div.item {
     overflow: hidden;
     @include trailer(2);
 }
-    
+
 #itemfiles img,
 .files .item-file img {
     margin: 0 rhythm(.25) rhythm(.25) 0;
@@ -992,7 +992,7 @@ div.item {
 .item-pagination {
     clear:both;
     overflow:hidden;
-    border-color: $gray;
+    border-color: $sand;
     font-weight:bold;
     @include leading-border(1px, 1, $base-font-size, solid);
     margin: rhythm() 0 0;
@@ -1070,7 +1070,7 @@ div.item {
     width: 1.5 * $base-line-height;
     position: relative;
     height: 1.5 * $base-line-height;
-    
+
     &:after {
         content: "\f00d";
         font-family: "FontAwesome";
@@ -1095,12 +1095,12 @@ div.item {
 .collections .item-img {
     float: left;
     margin: 0 rhythm() rhythm() 0;
-    
+
     a {
         display: block;
         height: rhythm(4);
     }
-    
+
     img {
         height: 100%;
         width: auto;
@@ -1108,7 +1108,7 @@ div.item {
         border: 1px solid #ccc;
         margin: 0;
         background-color: #fff;
-    }    
+    }
 }
 
 div.collection h2,
@@ -1152,7 +1152,7 @@ div.record h2 {
     position: relative;
     overflow: visible;
     @include trailer(-1);
-    padding: rhythm() 0;    
+    padding: rhythm() 0;
 
     &:after {
         content: "";
@@ -1192,38 +1192,38 @@ div.record h2 {
 }
 
 .browse .exhibit {
-    border-color: $gray;
+    border-color: $sand;
     @include leading-border(1px, 1, $base-font-size, solid);
     @include leader();
 }
 
 #exhibit-pages {
-    
+
     & > ul > li {
         @include trailer();
     }
-    
+
     ul {
         margin: 0;
         padding: 0;
         overflow:hidden;
         @include trailer();
-        
+
         ul {
             padding-left: rhythm();
             @include trailer(0);
         }
-    
+
         li {
             width: 100%;
             display: block;
             padding: 0;
-            
+
             &:last-of-type {
                 @include trailer(0);
             }
         }
-    
+
         a {
             width: 100%;
             text-align: left;
@@ -1231,23 +1231,23 @@ div.record h2 {
             display:block;
             padding: rhythm(.5);
             color:#fff;
-            background:$yellow;
+            background:$red;
             border-width: 0 1px 1px 0;
-            
+
             &:hover {
-                background-color: darken($yellow, 20%);
+                background-color: darken($red, 20%);
                 color: #fff;
             }
         }
     }
-    
+
     .current > a {
-        background-color: darken($yellow, 15%);
+        background-color: darken($red, 15%);
     }
 }
 
 #exhibit-page-navigation {
-    border-color: $gray;
+    border-color: $sand;
     @include leading-border(1px, 1, $base-font-size, solid);
     margin: rhythm() 0 0;
     float: left;
