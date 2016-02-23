@@ -1164,6 +1164,16 @@ th {
     color: #843418;
   }
 
+  footer .logo {
+    vertical-align: top;
+    display: block;
+  }
+
+  footer .logo img {
+    height: 4.5em;
+    width: auto;
+  }
+
   #footer-text {
     width: 50%;
     margin-bottom: 0;

@@ -765,6 +765,16 @@ footer {
     a:visited { color: $red; }
 }
 
+footer .logo {
+    vertical-align: top;
+    display: block;
+}
+
+footer .logo img {
+    height: rhythm(3);
+    width: auto;
+}
+
 #footer-text {
     width: 50%;
     margin-bottom:0;
