@@ -17,6 +17,15 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 
     <?php if ($total_results > 0): ?>
 
+    <?php
+    $sortLinks[__('Title')] = 'Dublin Core,Title';
+    $sortLinks[__('Creator')] = 'Dublin Core,Creator';
+    $sortLinks[__('Date')] = 'Dublin Core, Date';
+    ?>
+    <div id="sort-links">
+        <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
+    </div>
+
     <?php foreach (loop('items') as $item): ?>
         <div class="item hentry">
             <div class="item-meta">
@@ -45,11 +54,22 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
                 </div>
             <?php endif; ?>
 
+            <?php if (metadata($item, array('Item Type Metadata', 'Transcription'))): ?>
+            <span class="feature"><?php echo __('Transcription'); ?></span>
+            <?php endif; ?>
+            <?php if (metadata($item, array('Item Type Metadata', 'Translation'))): ?>
+            <span class="feature"><?php echo __('Translation'); ?></span>
+            <?php endif; ?>
+            <?php if (metadata($item, 'has files')): ?>
+            <span class="feature"><?php echo __('Image'); ?></span>
+            <?php endif; ?>
+
             <?php echo fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
 
             </div><!-- end class="item-meta" -->
         </div><!-- end class="item hentry" -->
     <?php endforeach; ?>
+    <?php endif; ?>
     <?php echo fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
 
     <?php echo pagination_links(); ?>
@@ -60,6 +80,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
         <h2><?php echo __('Featured Item'); ?></h2>
         <?php echo random_featured_items(1); ?>
     </div><!--end featured-item-->
+</div>
 
 </div><!-- end primary -->
 
