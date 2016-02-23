@@ -32,7 +32,14 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 
             <h2><?php echo link_to_item(metadata($item, array('Dublin Core', 'Title'), array('class'=>'permalink'))); ?></h2>
 
+            <?php if (metadata($item, array('Item Type Metadata', 'Transcription'))): ?>
+                <span class="feature"><?php echo __('Transcription Available'); ?></span>
+            <?php endif; ?>
+            <?php if (metadata($item, array('Item Type Metadata', 'Translation'))): ?>
+                <span class="feature"><?php echo __('Translation Available'); ?></span>
+            <?php endif; ?>
             <?php if (metadata($item, 'has thumbnail')): ?>
+                <span class="feature"><?php echo __('Image Available'); ?></span>
                 <div class="item-img">
                 <?php echo link_to_item(item_image('square_thumbnail')); ?>
                 </div>
@@ -52,16 +59,6 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
                 <div class="tags"><p><strong><?php echo __('Tags'); ?>: </strong>
                 <?php echo tag_string('items'); ?></p>
                 </div>
-            <?php endif; ?>
-
-            <?php if (metadata($item, array('Item Type Metadata', 'Transcription'))): ?>
-            <span class="feature"><?php echo __('Transcription'); ?></span>
-            <?php endif; ?>
-            <?php if (metadata($item, array('Item Type Metadata', 'Translation'))): ?>
-            <span class="feature"><?php echo __('Translation'); ?></span>
-            <?php endif; ?>
-            <?php if (metadata($item, 'has files')): ?>
-            <span class="feature"><?php echo __('Image'); ?></span>
             <?php endif; ?>
 
             <?php echo fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>

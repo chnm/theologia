@@ -959,6 +959,13 @@ div.item {
     h2 {
         @include leader(0);
     }
+
+    span.feature {
+        display: inline-block;
+        margin-bottom: rhythm();
+        background-color: $sand;
+        padding: rhythm(.25);
+    }
 }
 
 .item img {

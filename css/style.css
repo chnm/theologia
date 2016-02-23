@@ -1374,6 +1374,12 @@ th {
   div.item h2 {
     margin-top: 0em;
   }
+  div.item span.feature {
+    display: inline-block;
+    margin-bottom: 1.5em;
+    background-color: #E2DFD3;
+    padding: 0.375em;
+  }
 
   .item img {
     width: 6em;
