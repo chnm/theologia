@@ -1,6 +1,51 @@
 <?php echo head(array('title' => metadata($item, array('Dublin Core', 'Title')), 'bodyclass' => 'items show')); ?>
 
-<h1><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h1>
+<h1>
+    <?php echo metadata($item, array('Dublin Core', 'Title')); ?>
+    <?php if ($englishTitle = metadata($item, array('Item Type Metadata', 'Title (English)'))): ?>
+        <span class="eng"><?php echo $englishTitle; ?></span>
+    <?php endif; ?>
+</h1>
+
+<?php if ($item->getProperty('item_type_name') == 'Document'): ?>
+
+<div class="metadata">
+    <div class="short">
+    <?php
+        $shortElements = array(
+            array('Dublin Core', 'Date'),
+            array('Dublin Core', 'Subject'),
+            array('Dublin Core', 'Contributor')
+        );
+    ?>
+    <?php echo rpi_display_custom_element_set($item, $shortElements); ?>
+    </div>
+    <div class="long">
+    <?php
+        $longElements = array(
+            array('Dublin Core', 'Identifier'),
+            array('Dublin Core', 'Publisher'),
+            array('Item Type Metadata', 'Description (English)')
+        );
+    ?>
+    <?php echo rpi_display_custom_element_set($item, $longElements); ?>
+    <h3><?php echo __('Files'); ?></h3>
+    <?php echo files_for_item(); ?>
+    </div>
+</div>
+
+<div class="document">
+    <div class="transcription">
+        <h3><?php echo __('Transcription'); ?></h3>
+        <?php echo metadata($item, array('Item Type Metadata', 'Transcription')); ?>
+    </div>
+    <div class="translation">
+        <h3><?php echo __('Translation'); ?></h3>
+        <?php echo metadata($item, array('Item Type Metadata', 'Translation')); ?>
+    </div>
+</div>
+
+<?php else: ?>
 
 <div id="primary">
     <?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
@@ -51,9 +96,23 @@
 
 </div><!-- end secondary -->
 
+<?php endif; ?>
+
 <ul class="item-pagination navigation">
     <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
     <li id="next-item" class="next"><?php echo link_to_next_item_show(); ?></li>
 </ul>
+
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function() {
+        $('div.metadata').prepend('<div class="toggle open"></div>');
+        $('div.metadata').on('click', '.toggle', function() {
+            $('.metadata .short, .metadata .long').slideToggle();
+            $(this).toggleClass('open').toggleClass('closed');
+        });
+    });
+})(jQuery)
+</script>
 
 <?php echo foot();
