@@ -29,8 +29,10 @@
         );
     ?>
     <?php echo rpi_display_custom_element_set($item, $longElements); ?>
-    <h3><?php echo __('Files'); ?></h3>
-    <?php echo files_for_item(); ?>
+    <?php if (metadata($item, 'has files')): ?>
+        <h3><?php echo __('Files'); ?></h3>
+        <?php echo files_for_item(); ?>
+    <?php endif; ?>
     </div>
 </div>
 
