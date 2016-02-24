@@ -30,7 +30,7 @@
     ?>
     <?php echo rpi_display_custom_element_set($item, $longElements); ?>
     <?php if (metadata($item, 'has files')): ?>
-        <h3><?php echo __('Files'); ?></h3>
+        <h3><?php echo __('Document Images'); ?></h3>
         <?php echo files_for_item(); ?>
     <?php endif; ?>
     </div>
