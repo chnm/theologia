@@ -431,23 +431,24 @@ th {
   }
 
   h1 {
-    font-size: 28px;
-    line-height: 42px;
-    margin-bottom: 1.5em;
+    margin-top: 0;
+    font-size: 21px;
+    line-height: 31.5px;
+    margin-bottom: 1em;
   }
 
   h2 {
-    font-size: 24.5px;
-    line-height: 42px;
-    margin-bottom: 0.85714em;
+    font-size: 17.5px;
+    line-height: 21px;
+    margin-bottom: 1.2em;
     font-weight: bold;
     color: #9e9e9e;
   }
 
   h3 {
-    font-size: 17.5px;
+    font-size: 15.75px;
     line-height: 21px;
-    margin-bottom: 1.2em;
+    margin-bottom: 1.33333em;
     color: #7B8D78;
   }
 
@@ -884,6 +885,10 @@ th {
   div.hentry h2 {
     font-size: 17.5px;
     line-height: 31.5px;
+  }
+
+  .browse #content {
+    border-bottom: 0;
   }
 
   /* @end */
@@ -1364,7 +1369,7 @@ th {
   }
 
   .items.show h1 .eng {
-    font-size: 24.5px;
+    font-size: 21px;
     font-weight: normal;
   }
 
@@ -1558,6 +1563,7 @@ th {
 
   #sort-links-list {
     margin-left: 10px;
+    padding-left: 0;
     display: inline;
   }
   #sort-links-list li {
@@ -1587,11 +1593,14 @@ th {
   .items.browse td {
     vertical-align: top;
     text-align: center;
+    padding-right: 0.75em;
   }
 
   .items.browse table th:first-child,
-  .items.browse table td:first-child {
-    width: 50%;
+  .items.browse table td:first-child,
+  .items.browse table th:nth-child(2),
+  .items.browse table td:nth-child(2) {
+    width: 30%;
     text-align: left;
   }
 

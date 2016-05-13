@@ -29,25 +29,26 @@ body {
 }
 
 h1 {
-    font-size: 2 * $base-font-size;
-    line-height: 2 * $base-line-height;
-    @include trailer(1);
+    margin-top: 0;
+    font-size: 1.5 * $base-font-size;
+    line-height: 1.5 * $base-line-height;
+    @include trailer(1, 1.5 * $base-font-size);
 }
 
 
 h2 {
-    font-size: 1.75 * $base-font-size;
-    line-height: 2 * $base-line-height;
-    @include trailer(1, 1.75 * $base-font-size);
+    font-size: 1.25 * $base-font-size;
+    line-height: $base-line-height;
+    @include trailer(1, 1.25 * $base-font-size);
     font-weight: bold;
     color: #9e9e9e;
 }
 
 
 h3 {
-    font-size: 1.25 * $base-font-size;
+    font-size: 1.125 * $base-font-size;
     line-height: $base-line-height;
-    @include trailer(1, 1.25 * $base-font-size);
+    @include trailer(1, 1.125 * $base-font-size);
     color:#7B8D78;
 }
 
@@ -458,6 +459,10 @@ ul.tags li {
 div.hentry h2 {
     font-size: 1.25 * $base-font-size;
     line-height: 1.5 * $base-line-height;
+}
+
+.browse #content {
+    border-bottom: 0;
 }
 
 /* @end */
@@ -951,7 +956,7 @@ footer .logo img {
 }
 
 .items.show h1 .eng {
-    font-size: 1.75 * $base-font-size;
+    font-size: 1.5 * $base-font-size;
     font-weight: normal;
 }
 
@@ -1150,6 +1155,7 @@ div.item {
 
 #sort-links-list {
     margin-left: 10px;
+    padding-left: 0;
     display: inline;
 
     li {
@@ -1180,11 +1186,14 @@ div.item {
 .items.browse td {
     vertical-align: top;
     text-align: center;
+    padding-right: rhythm(.5);
 }
 
 .items.browse table th:first-child,
-.items.browse table td:first-child {
-    width: 50%;
+.items.browse table td:first-child,
+.items.browse table th:nth-child(2),
+.items.browse table td:nth-child(2) {
+    width: 30%;
     text-align: left;
 }
 

@@ -19,8 +19,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 
     <?php
     $sortLinks[__('Title')] = 'Dublin Core,Title';
-    $sortLinks[__('Creator')] = 'Dublin Core,Creator';
-    $sortLinks[__('Date')] = 'Dublin Core, Date';
+    $sortLinks[__('Date')] = 'Dublin Core,Date';
     ?>
     <div id="sort-links">
         <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
@@ -29,6 +28,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
     <table>
         <thead>
             <th><?php echo __('Title'); ?></th>
+            <th><?php echo __('Title (English)'); ?></th>
             <th><?php echo __('Document ID'); ?></th>
             <th><?php echo __('Date'); ?></th>
             <th><?php echo __('Transcription'); ?></th>
@@ -66,6 +66,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
                 <?php echo fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
 
                 </td><!-- end class="item-meta" -->
+                <td><?php echo ($english = metadata('item', array('Item Type Metadata', 'Title (English)'))) ? $english : ''; ?></td>
                 <td class="item-id"><?php echo ($docID = metadata('item', array('Item Type Metadata', 'File ID'))) ? $docID : ''; ?></td>
                 <td class="item-date"><?php echo ($date = metadata('item', array('Dublin Core', 'Date'))) ? $date : ''; ?></td>
                 <td class="check"><?php echo (metadata($item, array('Item Type Metadata', 'Transcription')) ? '&#x2713;' : ''); ?></td>
