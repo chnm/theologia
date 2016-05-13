@@ -1583,6 +1583,22 @@ th {
     font-weight: bold;
   }
 
+  .items.browse th,
+  .items.browse td {
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .items.browse table th:first-child,
+  .items.browse table td:first-child {
+    width: 50%;
+    text-align: left;
+  }
+
+  .items.browse h3 {
+    margin-top: 0;
+  }
+
   #advanced-search-form {
     padding-bottom: 3em;
   }

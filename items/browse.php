@@ -26,57 +26,58 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
         <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
     </div>
 
-    <?php foreach (loop('items') as $item): ?>
-        <div class="item hentry">
-            <div class="item-meta">
+    <table>
+        <thead>
+            <th><?php echo __('Title'); ?></th>
+            <th><?php echo __('Document ID'); ?></th>
+            <th><?php echo __('Date'); ?></th>
+            <th><?php echo __('Transcription'); ?></th>
+            <th><?php echo __('Translation'); ?></th>
+        </thead>
+        <tbody>
+        <?php foreach (loop('items') as $item): ?>
+            <tr class="item hentry">
+                <td class="item-meta">
+                    <h3><?php echo link_to_item(metadata($item, array('Dublin Core', 'Title'), array('class'=>'permalink'))); ?></h3>
 
-            <h2><?php echo link_to_item(metadata($item, array('Dublin Core', 'Title'), array('class'=>'permalink'))); ?></h2>
+                <?php if (metadata($item, 'has thumbnail')): ?>
+                    <span class="feature"><?php echo __('Image Available'); ?></span>
+                    <div class="item-img">
+                    <?php echo link_to_item(item_image('square_thumbnail')); ?>
+                    </div>
+                <?php endif; ?>
 
-            <?php if (metadata($item, array('Item Type Metadata', 'Transcription'))): ?>
-                <span class="feature"><?php echo __('Transcription Available'); ?></span>
-            <?php endif; ?>
-            <?php if (metadata($item, array('Item Type Metadata', 'Translation'))): ?>
-                <span class="feature"><?php echo __('Translation Available'); ?></span>
-            <?php endif; ?>
-            <?php if (metadata($item, 'has thumbnail')): ?>
-                <span class="feature"><?php echo __('Image Available'); ?></span>
-                <div class="item-img">
-                <?php echo link_to_item(item_image('square_thumbnail')); ?>
-                </div>
-            <?php endif; ?>
+                <?php if ($text = metadata($item, array('Item Type Metadata', 'Text'), array('snippet'=>250))): ?>
+                    <div class="item-description">
+                    <p><?php echo $text; ?></p>
+                    </div>
+                <?php elseif ($description = metadata($item, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+                    <div class="item-description">
+                    <?php echo $description; ?>
+                    </div>
+                <?php endif; ?>
 
-            <?php if ($text = metadata($item, array('Item Type Metadata', 'Text'), array('snippet'=>250))): ?>
-                <div class="item-description">
-                <p><?php echo $text; ?></p>
-                </div>
-            <?php elseif ($description = metadata($item, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-                <div class="item-description">
-                <?php echo $description; ?>
-                </div>
-            <?php endif; ?>
+                <?php if (metadata($item, 'has tags')): ?>
+                    <div class="tags"><p><strong><?php echo __('Tags'); ?>: </strong>
+                    <?php echo tag_string('items'); ?></p>
+                    </div>
+                <?php endif; ?>
 
-            <?php if (metadata($item, 'has tags')): ?>
-                <div class="tags"><p><strong><?php echo __('Tags'); ?>: </strong>
-                <?php echo tag_string('items'); ?></p>
-                </div>
-            <?php endif; ?>
+                <?php echo fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
 
-            <?php echo fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
-
-            </div><!-- end class="item-meta" -->
-        </div><!-- end class="item hentry" -->
-    <?php endforeach; ?>
+                </td><!-- end class="item-meta" -->
+                <td class="item-id"><?php echo ($docID = metadata('item', array('Item Type Metadata', 'File ID'))) ? $docID : ''; ?></td>
+                <td class="item-date"><?php echo ($date = metadata('item', array('Dublin Core', 'Date'))) ? $date : ''; ?></td>
+                <td class="check"><?php echo (metadata($item, array('Item Type Metadata', 'Transcription')) ? '&#x2713;' : ''); ?></td>
+                <td class="check"><?php echo (metadata($item, array('Item Type Metadata', 'Translation')) ? '&#x2713;' : ''); ?></td>
+            </tr><!-- end class="item hentry" -->
+        <?php endforeach; ?>
+        </tbody>
+    </table>
     <?php endif; ?>
     <?php echo fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
 
     <?php echo pagination_links(); ?>
-</div>
-<div id="secondary">
-    <!-- Featured Item -->
-    <div id="featured-item" class="featured">
-        <h2><?php echo __('Featured Item'); ?></h2>
-        <?php echo random_featured_items(1); ?>
-    </div><!--end featured-item-->
 </div>
 
 </div><!-- end primary -->
