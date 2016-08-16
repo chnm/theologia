@@ -792,6 +792,7 @@ footer .logo img {
 #item-filters ul,
 #search-filters ul {
     margin: 0;
+    padding-left: 0;
 
     ul {
         display: inline-block;
@@ -958,6 +959,7 @@ footer .logo img {
 .items.show h1 .eng {
     font-size: 1.5 * $base-font-size;
     font-weight: normal;
+    display: block;
 }
 
 .items.show .metadata {

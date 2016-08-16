@@ -1189,6 +1189,7 @@ th {
   #item-filters ul,
   #search-filters ul {
     margin: 0;
+    padding-left: 0;
   }
   #item-filters ul ul,
   #search-filters ul ul {
@@ -1371,6 +1372,7 @@ th {
   .items.show h1 .eng {
     font-size: 21px;
     font-weight: normal;
+    display: block;
   }
 
   .items.show .metadata {
