@@ -39,17 +39,12 @@ echo head(array('title'=>metadata('collection', array('Dublin Core', 'Title')), 
                 <?php endif; ?>
 
                 <h3><?php echo link_to_item(metadata($item, array('Dublin Core', 'Title')), array('class'=>'permalink'), 'show', $item); ?></h3>
+                <?php if ($date = metadata($item, array('Dublin Core', 'Date'))): ?>
+                    <div class="item-date">
+                    <?php echo $date; ?>
+                    </div>
+                <?php endif; ?>
             </div>
-
-            <?php if ($text = metadata($item, array('Item Type Metadata', 'Text'), array('snippet'=>250))): ?>
-                <div class="item-description">
-                <p><?php echo $text; ?></p>
-                </div>
-            <?php elseif ($date = metadata($item, array('Dublin Core', 'Date'))): ?>
-                <div class="item-description">
-                <?php echo $date; ?>
-                </div>
-            <?php endif; ?>
     <?php endforeach; ?>
     </div><!-- end collection-items -->
     <?php if (count($collectionItems) > 0): ?>
