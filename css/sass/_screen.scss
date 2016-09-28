@@ -66,6 +66,7 @@ p, ul, ol, dl {
 
 ul, ol, dl {
     margin-left: 1.5em;
+    padding-left: 0;
 }
 
 ul {
@@ -1111,6 +1112,10 @@ div.item {
     float: left;
 }
 
+#secondary #itemfiles .poster img {
+    width: 100%;
+}
+
 .element-text {
     font-size: $base-font-size;
     @include trailer(2, $base-font-size);
@@ -1266,6 +1271,14 @@ div.collection h2,
 div.exhibit h2,
 div.record h2 {
     @include leader(0);
+}
+
+#secondary .item.resource h3 {
+    margin-top: 0;
+}
+
+#secondary .item-img {
+    clear: left;
 }
 
 /* @end */

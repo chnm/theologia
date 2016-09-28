@@ -27,14 +27,15 @@ echo head(array('title'=>metadata('collection', array('Dublin Core', 'Title')), 
     <div id="collection-items">
         <?php $collectionItems = get_records('item', array('collection' => $collectionId), 3); ?>
         <?php foreach (loop('items', $collectionItems) as $item): ?>
+            <div class="item resource">
+                <?php if (metadata($item, 'has thumbnail')): ?>
+                <div class="item-img">
+                    <?php echo link_to_item(item_image('square_thumbnail', array('alt'=>metadata($item,array('Dublin Core', 'Title'))))); ?>
+                </div>
+                <?php endif; ?>
 
-            <h3><?php echo link_to_item(metadata($item, array('Dublin Core', 'Title')), array('class'=>'permalink'), 'show', $item); ?></h3>
-
-            <?php if (metadata($item, 'has thumbnail')): ?>
-            <div class="item-img">
-                <?php echo link_to_item(item_image('square_thumbnail', array('alt'=>metadata($item,array('Dublin Core', 'Title'))))); ?>
+                <h3><?php echo link_to_item(metadata($item, array('Dublin Core', 'Title')), array('class'=>'permalink'), 'show', $item); ?></h3>
             </div>
-            <?php endif; ?>
 
             <?php if ($text = metadata($item, array('Item Type Metadata', 'Text'), array('snippet'=>250))): ?>
                 <div class="item-description">

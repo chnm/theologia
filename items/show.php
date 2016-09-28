@@ -68,7 +68,14 @@
     <?php if ((get_theme_option('Item FileGallery') == 1) && metadata($item, 'has files')): ?>
     <div id="itemfiles" class="element">
         <h2>Files</h2>
+        <?php if ($item->hasTag('SovietMuslimPosters')): ?>
+            <?php $itemFiles = $item->Files; ?>
+            <?php foreach ($itemFiles as $itemFile): ?>
+                <div class="poster element-text"><?php echo link_to($itemFile, 'show', file_image('original', array(), $itemFile)); ?></div>
+            <?php endforeach; ?>
+        <?php else: ?>
         <div class="element-text"><?php echo item_image_gallery(); ?></div>
+        <?php endif; ?>
     </div>
     <?php endif; ?>
 
