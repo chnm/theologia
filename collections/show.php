@@ -21,6 +21,10 @@ echo head(array('title'=>metadata('collection', array('Dublin Core', 'Title')), 
         </div>
     </div><!-- end collectors -->
     <?php endif; ?>
+    <?php if ($rights = metadata('collection', array('Dublin Core', 'Rights'))): ?>
+        <h2><?php echo __('Rights'); ?></h2>
+        <div class="element-text"><?php echo $rights; ?></div>
+    <?php endif; ?>
     <?php echo fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
 </div>
 <div id="secondary">
@@ -41,9 +45,9 @@ echo head(array('title'=>metadata('collection', array('Dublin Core', 'Title')), 
                 <div class="item-description">
                 <p><?php echo $text; ?></p>
                 </div>
-            <?php elseif ($description = metadata($item, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+            <?php elseif ($date = metadata($item, array('Dublin Core', 'Date'))): ?>
                 <div class="item-description">
-                <?php echo $description; ?>
+                <?php echo $date; ?>
                 </div>
             <?php endif; ?>
     <?php endforeach; ?>
