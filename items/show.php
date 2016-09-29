@@ -72,7 +72,6 @@
         <?php foreach ($itemFiles as $itemFile): ?>
             <div class="poster element-text"><?php echo link_to($itemFile, 'show', file_image('original', array(), $itemFile)); ?></div>
         <?php endforeach; ?>
-        <?php endif; ?>
     </div>
     <?php endif; ?>
 
