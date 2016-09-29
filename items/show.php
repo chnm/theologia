@@ -23,9 +23,11 @@
     <div class="long">
     <?php
         $longElements = array(
-            array('Dublin Core', 'Identifier'),
+            array('Item Type Metadata', 'File ID'),
             array('Dublin Core', 'Publisher'),
-            array('Item Type Metadata', 'Description (English)')
+            array('Dublin Core', 'Description'),
+            array('Item Type Metadata', 'Description (English)'),
+            array('Item Type Metadata', 'Comments')
         );
     ?>
     <?php echo rpi_display_custom_element_set($item, $longElements); ?>
