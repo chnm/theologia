@@ -43,7 +43,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
                 <?php if (metadata($item, 'has thumbnail')): ?>
                     <span class="feature"><?php echo __('Image Available'); ?></span>
                     <div class="item-img">
-                    <?php echo link_to_item(item_image('square_thumbnail')); ?>
+                    <?php echo link_to_item(item_image('thumbnail')); ?>
                     </div>
                 <?php endif; ?>
 
