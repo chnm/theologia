@@ -19,7 +19,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 
     <?php
     $sortLinks[__('Title')] = 'Dublin Core,Title';
-    $sortLinks[__('Date')] = 'Dublin Core,Date';
+    $sortLinks[__('Date')] = 'Item Type Metadata,Sortable Date';
     ?>
     <div id="sort-links">
         <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
