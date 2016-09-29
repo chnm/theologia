@@ -12,6 +12,7 @@ $searchRecordTypes = get_search_record_types();
         <tr>
             <th><?php echo __('Record Type');?></th>
             <th><?php echo __('Title');?></th>
+            <th><?php echo __('Date'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,11 @@ $searchRecordTypes = get_search_record_types();
                 <a href="<?php echo record_url($record, 'show'); ?>"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></a>
                 <?php if ($engTitle = metadata($record, array('Item Type Metadata', 'Title (English)'))): ?>
                     <br><a href="<?php echo record_url($record, 'show'); ?>"><?php echo $engTitle; ?></a>
+                <?php endif; ?>
+            </td>
+            <td>
+                <?php if ($date = metadata($record, array('Dublin Core', 'Date'))): ?>
+                <?php echo $date; ?>
                 <?php endif; ?>
             </td>
         </tr>
