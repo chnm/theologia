@@ -466,6 +466,14 @@ div.hentry h2 {
     border-bottom: 0;
 }
 
+.feature {
+    padding: rhythm(.25) 10px;
+    background-color: lighten($red, 35%);
+    color: darken($red, 15%);
+    display: inline-block;
+    margin: rhythm(-.5) 0 rhythm(.5);
+}
+
 /* @end */
 
 /* @group ----- Header ----- */

@@ -892,6 +892,14 @@ th {
     border-bottom: 0;
   }
 
+  .feature {
+    padding: 0.375em 10px;
+    background-color: #e48a6b;
+    color: #431b0c;
+    display: inline-block;
+    margin: -0.75em 0 0.75em;
+  }
+
   /* @end */
   /* @group ----- Header ----- */
   header {
