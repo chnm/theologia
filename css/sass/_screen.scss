@@ -1080,6 +1080,11 @@ footer .logo img {
     padding-left: rhythm();
 }
 
+.items.show #content > #primary:not(:only-child),
+.items.show #secondary {
+    width: 50%;
+}
+
 div.item {
     clear: both;
     overflow:hidden;
