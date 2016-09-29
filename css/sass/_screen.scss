@@ -1053,6 +1053,22 @@ footer .logo img {
     width: 50%;
     display: inline-block;
     vertical-align: top;
+
+    table {
+        display: block;
+        overflow-x: scroll;
+    }
+
+    th:not(:first-child),
+    td:not(:first-child) {
+        border-left: 1px solid $sand;
+    }
+
+    th,
+    td {
+        min-width: 3em;
+        padding: rhythm(.25);
+    }
 }
 
 .items.show .document .transcription {

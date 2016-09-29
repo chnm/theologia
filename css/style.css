@@ -1463,6 +1463,24 @@ th {
     display: inline-block;
     vertical-align: top;
   }
+  .items.show .document .transcription table,
+  .items.show .document .translation table {
+    display: block;
+    overflow-x: scroll;
+  }
+  .items.show .document .transcription th:not(:first-child),
+  .items.show .document .transcription td:not(:first-child),
+  .items.show .document .translation th:not(:first-child),
+  .items.show .document .translation td:not(:first-child) {
+    border-left: 1px solid #E2DFD3;
+  }
+  .items.show .document .transcription th,
+  .items.show .document .transcription td,
+  .items.show .document .translation th,
+  .items.show .document .translation td {
+    min-width: 3em;
+    padding: 0.375em;
+  }
 
   .items.show .document .transcription {
     padding-right: 1.5em;
