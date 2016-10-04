@@ -2,8 +2,14 @@
 $collectionId = $collection->id;
 echo head(array('title'=>metadata('collection', array('Dublin Core', 'Title')), 'bodyclass' => 'collections show')); ?>
 
-<h1><?php echo metadata('collection', array('Dublin Core', 'Title')); ?></h1>
-
+<?php $collectionTitles = metadata('collection', array('Dublin Core', 'Title'), array('all' => 'true')); ?>
+<?php if (count($collectionTitles) > 1): ?>
+    <?php foreach ($collectionTitles as $collectionTitle): ?>
+        <?php echo $collectionTitle; ?>
+    <?php endforeach; ?>
+<?php else: ?>
+    <h1><?php echo metadata('collection', array('Dublin Core', 'Title')); ?></h1>
+<?php endif; ?>
 <div id="primary" class="show">
     <?php if ($collectionDescription = metadata('collection', array('Dublin Core', 'Description'))): ?>
     <div id="description" class="element">
