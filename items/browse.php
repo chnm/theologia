@@ -67,7 +67,7 @@ echo head(array('title'=>$pageTitle, 'bodyclass' => 'items browse'));
 
                 </td><!-- end class="item-meta" -->
                 <td><?php echo ($english = metadata('item', array('Item Type Metadata', 'Title (English)'))) ? $english : ''; ?></td>
-                <td class="item-id"><?php echo ($docID = metadata('item', array('Item Type Metadata', 'File ID'))) ? $docID : ''; ?></td>
+                <td class="item-id"><?php echo ($docID = metadata('item', array('Dublin Core', 'Identifier'))) ? $docID : ''; ?></td>
                 <td class="item-date"><?php echo ($date = metadata('item', array('Dublin Core', 'Date'))) ? $date : ''; ?></td>
                 <td class="check"><?php echo (metadata($item, array('Item Type Metadata', 'Transcription')) ? '&#x2713;' : ''); ?></td>
                 <td class="check"><?php echo (metadata($item, array('Item Type Metadata', 'Translation')) ? '&#x2713;' : ''); ?></td>

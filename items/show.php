@@ -23,7 +23,7 @@
     <div class="long">
     <?php
         $longElements = array(
-            array('Item Type Metadata', 'File ID'),
+            array('Dublin Core', 'Identifier'),
             array('Dublin Core', 'Publisher'),
             array('Dublin Core', 'Description'),
             array('Item Type Metadata', 'Description (English)'),
