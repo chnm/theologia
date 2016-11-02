@@ -30,13 +30,17 @@ $searchRecordTypes = get_search_record_types();
                     <?php echo link_to($record, 'show', $recordImage, array('class' => 'image')); ?>
                 <?php endif; ?>
                 <a href="<?php echo record_url($record, 'show'); ?>"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></a>
-                <?php if ($engTitle = metadata($record, array('Item Type Metadata', 'Title (English)'))): ?>
-                    <br><a href="<?php echo record_url($record, 'show'); ?>"><?php echo $engTitle; ?></a>
+                <?php  if (get_class($record) == 'Item'): ?>
+                    <?php if ($engTitle = metadata($record, array('Item Type Metadata', 'Title (English)'))): ?>
+                        <br><a href="<?php echo record_url($record, 'show'); ?>"><?php echo $engTitle; ?></a>
+                    <?php endif; ?>
                 <?php endif; ?>
             </td>
             <td>
-                <?php if ($date = metadata($record, array('Dublin Core', 'Date'))): ?>
-                <?php echo $date; ?>
+                <?php if (get_class($record) == 'Item' || get_class($record) == 'Collection'): ?>
+                    <?php if ($date = metadata($record, array('Dublin Core', 'Date'))): ?>
+                    <?php echo $date; ?>
+                    <?php endif; ?>
                 <?php endif; ?>
             </td>
         </tr>
