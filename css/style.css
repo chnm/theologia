@@ -1044,7 +1044,6 @@ th {
   }
   .nav-menu a {
     text-decoration: none;
-    color: #E2DFD3;
   }
 
   /* a top level navigation item in the mega menu */
@@ -1100,6 +1099,10 @@ th {
     display: block;
     background-color: #a59c77;
     min-width: 150%;
+  }
+
+  .sub-nav.open a {
+    color: #E2DFD3;
   }
 
   /* list of items within sub-navigation panel */

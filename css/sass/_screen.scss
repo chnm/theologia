@@ -638,7 +638,6 @@ header {
 
     a {
         text-decoration: none;
-        color: $sand;
     }
 }
 
@@ -695,6 +694,10 @@ header {
     display: block;
     background-color: darken($sand, 30%);
     min-width: 150%;
+}
+
+.sub-nav.open a {
+    color: $sand;
 }
 
 /* list of items within sub-navigation panel */
