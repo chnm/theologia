@@ -638,6 +638,7 @@ header {
 
     a {
         text-decoration: none;
+        color: $sand;
     }
 }
 
@@ -692,7 +693,7 @@ header {
 /* sub-navigation panel open state */
 .sub-nav.open {
     display: block;
-    background-color: #000;
+    background-color: darken($sand, 30%);
     min-width: 150%;
 }
 
@@ -1453,6 +1454,10 @@ div.record h2 {
 
 .exhibit-block > *:last-child {
     margin-bottom: 0;
+}
+
+.exhibit-items + * {
+    margin-top: 0;
 }
 
 /* @end */

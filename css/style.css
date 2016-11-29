@@ -1044,6 +1044,7 @@ th {
   }
   .nav-menu a {
     text-decoration: none;
+    color: #E2DFD3;
   }
 
   /* a top level navigation item in the mega menu */
@@ -1097,7 +1098,7 @@ th {
   /* sub-navigation panel open state */
   .sub-nav.open {
     display: block;
-    background-color: #000;
+    background-color: #a59c77;
     min-width: 150%;
   }
 
@@ -1844,6 +1845,10 @@ th {
 
   .exhibit-block > *:last-child {
     margin-bottom: 0;
+  }
+
+  .exhibit-items + * {
+    margin-top: 0;
   }
 
   /* @end */
