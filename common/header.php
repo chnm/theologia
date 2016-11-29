@@ -21,15 +21,15 @@
 
     <!-- Stylesheets -->
     <?php
-    queue_css_url('//fonts.googleapis.com/css?family=Lato');
+    queue_css_url('//fonts.googleapis.com/css?family=Lato:400,400i,900,900i');
     queue_css_file(array('iconfonts', 'style'));
     echo head_css();
     ?>
 
     <!-- JavaScripts -->
-    <?php 
+    <?php
     queue_js_file(array('jquery-accessibleMegaMenu','emiglio', 'globals'));
-    echo head_js(); 
+    echo head_js();
     ?>
 </head>
 
@@ -59,7 +59,7 @@
             <?php echo theme_header_image(); ?>
 
         </header>
-        
+
         <article id="content" role="main" tabindex="-1">
-        
+
             <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>

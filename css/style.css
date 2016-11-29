@@ -450,11 +450,12 @@ th {
     line-height: 21px;
     margin-bottom: 1.33333em;
     color: #7B8D78;
+    font-weight: 900;
   }
 
   h4 {
     margin-bottom: 1.5em;
-    font-weight: bold;
+    font-weight: 900;
     color: #7B8D78;
   }
 
@@ -544,6 +545,13 @@ th {
     margin: 0;
     padding: 10px 0;
     border-bottom: 1px solid #E2DFD3;
+  }
+  th:not(:last-child), td:not(:last-child) {
+    border-right: 1px solid #E2DFD3;
+    padding-right: 0.375em;
+  }
+  th:not(:first-child), td:not(:first-child) {
+    padding-left: 0.375em;
   }
 
   th {
@@ -1291,6 +1299,7 @@ th {
   .featured h3,
   #featured-exhibit h3 {
     margin-top: 0em;
+    color: #c9e5fd;
   }
   .featured a,
   #featured-exhibit a {

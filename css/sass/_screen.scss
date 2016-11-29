@@ -50,12 +50,13 @@ h3 {
     line-height: $base-line-height;
     @include trailer(1, 1.125 * $base-font-size);
     color:#7B8D78;
+    font-weight: 900;
 }
 
 
 h4 {
     @include trailer();
-    font-weight:bold;
+    font-weight: 900;
     color:#7B8D78;
 }
 
@@ -142,6 +143,15 @@ th,td {
     margin:0;
     padding: 10px 0;
     border-bottom: 1px solid $sand;
+
+    &:not(:last-child) {
+        border-right: 1px solid $sand;
+        padding-right: rhythm(.25);
+    }
+
+    &:not(:first-child) {
+        padding-left: rhythm(.25);
+    }
 }
 
 th {
@@ -891,6 +901,7 @@ footer .logo img {
 
     h3 {
         @include leader(0);
+        color: #c9e5fd;
     }
 
     a { color: lighten($blue, 40%); }
