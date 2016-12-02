@@ -31,7 +31,10 @@
         );
     ?>
     <?php echo rpi_display_custom_element_set($item, $longElements); ?>
-    <?php if (metadata($item, 'has files')): ?>
+    <?php if ($citation = metadata($item, 'citation', array('no_escape' => true))): ?>
+        <h3><?php echo __('Citation'); ?></h3>
+        <?php echo $citation; ?>
+    <?php endif; ?>    <?php if (metadata($item, 'has files')): ?>
         <h3><?php echo __('Document Images'); ?></h3>
         <?php echo files_for_item(); ?>
     <?php endif; ?>
