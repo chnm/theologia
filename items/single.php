@@ -13,7 +13,7 @@
     </h3>
     <?php if (metadata($item, 'has files')) {
         echo link_to_item(
-            item_image('square_thumbnail', array(), 0, $item),
+            item_image('thumbnail', array(), 0, $item),
             array('class' => 'image'), 'show', $item
         );
     }
