@@ -4,7 +4,7 @@
     <?php echo metadata($item, array('Dublin Core', 'Title')); ?>
     <?php // if ($englishTitle = metadata($item, array('Item Type Metadata', 'Title (English)'))): ?>
         <!-- <span class="eng"><?php echo $englishTitle; ?></span> -->
-    <?php endif; ?>
+    <?php// endif; ?>
 </h1>
 
 <?php if ($item->getProperty('item_type_name') == 'Document'): ?>
