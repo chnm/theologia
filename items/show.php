@@ -2,6 +2,8 @@
 
 <h1>
     <?php echo metadata($item, array('Dublin Core', 'Title')); ?>
+    <?php // if ($englishTitle = metadata($item, array('Item Type Metadata', 'Title (English)'))): ?>
+        <!-- <span class="eng"><?php echo $englishTitle; ?></span> -->
     <?php endif; ?>
 </h1>
 

@@ -1,15 +1,15 @@
 <div class="item record">
     <?php
     $title = metadata($item, array('Dublin Core', 'Title'));
-    $titleEng = metadata($item, array('Item Type Metadata', 'Title (English)'));
+    // $titleEng = metadata($item, array('Item Type Metadata', 'Title (English)'));
     $description = metadata($item, array('Dublin Core', 'Description'), array('snippet' => 150));
     ?>
     <h3>
         <?php echo link_to($item, 'show', strip_formatting($title)); ?>
-        <?php if ($titleEng): ?>
+        <!-- <?php if ($titleEng): ?>
         <br>
         <?php echo $titleEng; ?>
-        <?php endif; ?>
+        <?php endif; ?> -->
     </h3>
     <?php if (metadata($item, 'has files')) {
         echo link_to_item(
