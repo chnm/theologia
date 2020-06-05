@@ -25,7 +25,11 @@
     <div id="itemfiles" class="element">
         <h2>Files</h2>
         <?php foreach ($itemFiles as $itemFile): ?>
-        <?php $fileTitle = metadata($itemFile, array('Dublin Core', 'Title')); ?>
+        <?php if (metadata($itemFile, array('Dublin Core', 'Title'))): ?>
+            <?php $fileTitle = metadata($itemFile, array('Dublin Core', 'Title')); ?>
+        <?php else: ?>
+            <?php $fileTitle = 'Untitled'; ?>
+        <?php endif; ?>
             <div class="poster element-text"><a href="<?php echo metadata($itemFile, 'uri') ?>" target="_blank"><?php echo $fileTitle; ?></a></div>
         <?php endforeach; ?>
     </div>
