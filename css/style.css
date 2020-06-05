@@ -1576,6 +1576,10 @@ th {
     margin-bottom: 3em;
   }
 
+  .items.show .poster.element-text {
+    margin-bottom: 1rem;
+  }
+
   .element-text-empty {
     display: none;
   }
