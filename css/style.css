@@ -744,9 +744,6 @@ th {
     margin-bottom: -1.5em;
   }
 
-  #top-nav .navigation > li:first-child {
-    display: none;
-  }
 
   .navigation {
     list-style: none;

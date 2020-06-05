@@ -12,7 +12,7 @@
                     <p><?php echo $copyright; ?></p>
                 <?php endif; ?>
                 <p><?php echo __('Proudly powered by <a href="http://omeka.org">Omeka</a>.'); ?></p>
-                <a href="http://neh.gov" class="logo"><img src="<?php echo img('neh_50_logo_black.png'); ?>" title="NEH logo"></a>
+                <!-- <a href="http://neh.gov" class="logo"><img src="<?php echo img('neh_50_logo_black.png'); ?>" title="NEH logo"></a> -->
             </div>
 
             <?php fire_plugin_hook('public_footer', array('view'=>$this)); ?>

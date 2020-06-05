@@ -2,64 +2,14 @@
 
 <h1>
     <?php echo metadata($item, array('Dublin Core', 'Title')); ?>
-    <?php // if ($englishTitle = metadata($item, array('Item Type Metadata', 'Title (English)'))): ?>
-        <!-- <span class="eng"><?php echo $englishTitle; ?></span> -->
-    <?php// endif; ?>
 </h1>
 
-<?php if ($item->getProperty('item_type_name') == 'Document'): ?>
-
-<div class="metadata">
-    <div class="short">
-    <?php
-        $shortElements = array(
-            array('Dublin Core', 'Date'),
-            array('Dublin Core', 'Subject'),
-            array('Dublin Core', 'Contributor')
-        );
-    ?>
-    <?php echo rpi_display_custom_element_set($item, $shortElements); ?>
-    </div>
-    <div class="long">
-    <?php
-        $longElements = array(
-            array('Dublin Core', 'Identifier'),
-            array('Dublin Core', 'Publisher'),
-            array('Dublin Core', 'Description'),
-            array('Item Type Metadata', 'Description (English)'),
-            array('Item Type Metadata', 'Comments')
-        );
-    ?>
-    <?php echo rpi_display_custom_element_set($item, $longElements); ?>
-    <?php if ($citation = metadata($item, 'citation', array('no_escape' => true))): ?>
-    <div class="element">
-        <h3><?php echo __('Citation'); ?></h3>
-        <?php echo $citation; ?>
-    </div>
-    <?php endif; ?>    <?php if (metadata($item, 'has files')): ?>
-        <h3><?php echo __('Document Images'); ?></h3>
-        <?php echo files_for_item(); ?>
-    <?php endif; ?>
-    </div>
-</div>
-
-<div class="document">
-    <div class="transcription">
-        <h3><?php echo __('Transcription'); ?></h3>
-        <?php echo metadata($item, array('Item Type Metadata', 'Transcription')); ?>
-    </div>
-    <div class="translation">
-        <h3><?php echo __('Translation'); ?></h3>
-        <?php echo metadata($item, array('Item Type Metadata', 'Translation')); ?>
-    </div>
-</div>
-
-<?php else: ?>
-
 <div id="primary">
-    <?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
+    <?php if (metadata('item', 'has files')): ?>
     <div id="itemfiles" class="element">
-        <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
+        <?php $itemFiles = $item->Files; ?>
+        <?php $firstFile = $itemFiles[0]; ?>
+        <?php echo file_markup($firstFile, array('imageSize' => 'fullsize')); ?>
     </div>
     <?php endif; ?>
 
@@ -70,14 +20,13 @@
 </div><!-- end primary -->
 
 <div id="secondary">
-
     <!-- The following returns all of the files associated with an item. -->
-    <?php if ((get_theme_option('Item FileGallery') == 1) && metadata($item, 'has files')): ?>
+    <?php if (metadata($item, 'has files')): ?>
     <div id="itemfiles" class="element">
         <h2>Files</h2>
-        <?php $itemFiles = $item->Files; ?>
         <?php foreach ($itemFiles as $itemFile): ?>
-            <div class="poster element-text"><?php echo link_to($itemFile, 'show', file_image('original', array(), $itemFile)); ?></div>
+        <?php $fileTitle = metadata($itemFile, array('Dublin Core', 'Title')); ?>
+            <div class="poster element-text"><a href="<?php echo metadata($itemFile, 'uri') ?>" target="_blank"><?php echo $fileTitle; ?></a></div>
         <?php endforeach; ?>
     </div>
     <?php endif; ?>
@@ -107,8 +56,6 @@
     </div>
 
 </div><!-- end secondary -->
-
-<?php endif; ?>
 
 <ul class="item-pagination navigation">
     <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>

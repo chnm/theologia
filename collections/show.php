@@ -54,7 +54,7 @@ echo head(array('title'=>metadata('collection', array('Dublin Core', 'Title')), 
     <?php endforeach; ?>
     </div><!-- end collection-items -->
     <?php if (count($collectionItems) > 0): ?>
-    <p class="view-items-link"><?php echo link_to_items_browse(__('View the items in %s', metadata('collection', array('Dublin Core', 'Title'))), array('collection' => $collectionId)); ?></p>
+    <p class="view-items-link"><?php echo link_to_items_browse(__('View the items in %s', metadata('collection', array('Dublin Core', 'Title'))), array('collection' => $collectionId,'sort_field'=>'Dublin+Core%2CTitle')); ?></p>
     <?php endif; ?>
 </div>
 <?php echo foot(); ?>
